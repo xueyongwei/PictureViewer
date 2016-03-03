@@ -13,9 +13,17 @@
 		6B66C5191C858946007E5CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C5171C858946007E5CAB /* Main.storyboard */; };
 		6B66C51B1C858946007E5CAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C51A1C858946007E5CAB /* Assets.xcassets */; };
 		6B66C51E1C858946007E5CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C51C1C858946007E5CAB /* LaunchScreen.storyboard */; };
+		6B66C5291C858968007E5CAB /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C5261C858968007E5CAB /* 3.jpg */; };
+		6B66C52A1C858968007E5CAB /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C5271C858968007E5CAB /* 2.jpg */; };
+		6B66C52B1C858968007E5CAB /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C5281C858968007E5CAB /* 1.jpg */; };
+		6B66C52E1C85896D007E5CAB /* sc.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C52C1C85896D007E5CAB /* sc.png */; };
+		6B66C52F1C85896D007E5CAB /* xz.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C52D1C85896D007E5CAB /* xz.png */; };
+		6B66C5341C8589A2007E5CAB /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B66C5331C8589A2007E5CAB /* PhotoView.m */; };
+		6B66C5361C8589AF007E5CAB /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B66C5351C8589AF007E5CAB /* PhotoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		474986461C86B5D1009AB3C4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		6B66C50B1C858946007E5CAB /* PictureViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PictureViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B66C50F1C858946007E5CAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6B66C5111C858946007E5CAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +34,14 @@
 		6B66C51A1C858946007E5CAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B66C51D1C858946007E5CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B66C51F1C858946007E5CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B66C5261C858968007E5CAB /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		6B66C5271C858968007E5CAB /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		6B66C5281C858968007E5CAB /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		6B66C52C1C85896D007E5CAB /* sc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sc.png; sourceTree = "<group>"; };
+		6B66C52D1C85896D007E5CAB /* xz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xz.png; sourceTree = "<group>"; };
+		6B66C5321C8589A2007E5CAB /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
+		6B66C5331C8589A2007E5CAB /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
+		6B66C5351C8589AF007E5CAB /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,7 @@
 		6B66C5021C858946007E5CAB = {
 			isa = PBXGroup;
 			children = (
+				474986461C86B5D1009AB3C4 /* PrefixHeader.pch */,
 				6B66C50D1C858946007E5CAB /* PictureViewer */,
 				6B66C50C1C858946007E5CAB /* Products */,
 			);
@@ -58,6 +75,8 @@
 		6B66C50D1C858946007E5CAB /* PictureViewer */ = {
 			isa = PBXGroup;
 			children = (
+				6B66C5301C858988007E5CAB /* models */,
+				6B66C5311C858988007E5CAB /* views */,
 				6B66C5111C858946007E5CAB /* AppDelegate.h */,
 				6B66C5121C858946007E5CAB /* AppDelegate.m */,
 				6B66C5141C858946007E5CAB /* ViewController.h */,
@@ -74,9 +93,39 @@
 		6B66C50E1C858946007E5CAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6B66C5251C858961007E5CAB /* pics */,
 				6B66C50F1C858946007E5CAB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B66C5251C858961007E5CAB /* pics */ = {
+			isa = PBXGroup;
+			children = (
+				6B66C52C1C85896D007E5CAB /* sc.png */,
+				6B66C52D1C85896D007E5CAB /* xz.png */,
+				6B66C5261C858968007E5CAB /* 3.jpg */,
+				6B66C5271C858968007E5CAB /* 2.jpg */,
+				6B66C5281C858968007E5CAB /* 1.jpg */,
+			);
+			path = pics;
+			sourceTree = "<group>";
+		};
+		6B66C5301C858988007E5CAB /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		6B66C5311C858988007E5CAB /* views */ = {
+			isa = PBXGroup;
+			children = (
+				6B66C5321C8589A2007E5CAB /* PhotoView.h */,
+				6B66C5331C8589A2007E5CAB /* PhotoView.m */,
+				6B66C5351C8589AF007E5CAB /* PhotoView.xib */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +187,13 @@
 			files = (
 				6B66C51E1C858946007E5CAB /* LaunchScreen.storyboard in Resources */,
 				6B66C51B1C858946007E5CAB /* Assets.xcassets in Resources */,
+				6B66C52A1C858968007E5CAB /* 2.jpg in Resources */,
+				6B66C52F1C85896D007E5CAB /* xz.png in Resources */,
+				6B66C52B1C858968007E5CAB /* 1.jpg in Resources */,
+				6B66C5361C8589AF007E5CAB /* PhotoView.xib in Resources */,
 				6B66C5191C858946007E5CAB /* Main.storyboard in Resources */,
+				6B66C5291C858968007E5CAB /* 3.jpg in Resources */,
+				6B66C52E1C85896D007E5CAB /* sc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +207,7 @@
 				6B66C5161C858946007E5CAB /* ViewController.m in Sources */,
 				6B66C5131C858946007E5CAB /* AppDelegate.m in Sources */,
 				6B66C5101C858946007E5CAB /* main.m in Sources */,
+				6B66C5341C8589A2007E5CAB /* PhotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/ioseoe/Desktop/PictureViewer/PrefixHeader.pch;
 				INFOPLIST_FILE = PictureViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xyw.PictureViewer;
@@ -272,6 +329,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = /Users/ioseoe/Desktop/PictureViewer/PrefixHeader.pch;
 				INFOPLIST_FILE = PictureViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xyw.PictureViewer;
@@ -298,6 +356,7 @@
 				6B66C5241C858946007E5CAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
