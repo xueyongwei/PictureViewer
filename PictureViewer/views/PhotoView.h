@@ -10,7 +10,8 @@
 //@class ViewController;
 #import "ViewController.h"
 
-@interface PhotoView : UIView
+@interface PhotoView : UIView <UIGestureRecognizerDelegate>
+
 @property (weak, nonatomic) IBOutlet ViewController *VC;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;

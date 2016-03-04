@@ -19,6 +19,35 @@
 {
     oldLen = self.bounds.size.width;
     DbLog(@"oldLen = %f",oldLen);
+    [self addGestureDoubleFinger];
+}
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
+}
+-(void)addGestureDoubleFinger
+{
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(pinchHandle:)];
+    pinch.delegate = self;
+    [self addGestureRecognizer:pinch];
+    
+    [self addGestureDoubleRotation];
+}
+-(void)addGestureDoubleRotation
+{
+    UIRotationGestureRecognizer *rotation = [[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(rotationHandle:)];
+    rotation.delegate = self;
+    [self addGestureRecognizer:rotation];
+}
+-(void)pinchHandle:(UIPinchGestureRecognizer *)recognizer
+{
+    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
+    recognizer.scale = 1;
+}
+-(void)rotationHandle:(UIRotationGestureRecognizer *)recognizer
+{
+    recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
+    recognizer.rotation = 0;
 }
 - (IBAction)onDeleteClick:(UIButton *)sender {
     [sender.superview removeFromSuperview];
@@ -72,11 +101,12 @@
     if (touch2) {//点击图片时拖动
         DbLog(@"moveimg..");
         
-        NSLog(@"改变中心点之前的frame是%@",NSStringFromCGRect(self.frame));
+        DbLog(@"改变中心点之前的frame是%@",NSStringFromCGRect(self.frame));
         CGPoint laCentet = [touch2 previousLocationInView:self.superview];
-        CGPoint center = [touch2 locationInView:self.superview];
+        CGPoint center =
+        [touch2 locationInView:self.superview];
         self.center = CGPointMake(self.center.x+center.x-laCentet.x, self.center.y+center.y-laCentet.y);
-        NSLog(@"改变中心点之后的frame是%@",NSStringFromCGRect(self.frame));
+        DbLog(@"改变中心点之后的frame是%@",NSStringFromCGRect(self.frame));
     }
 }
 -(void)customScale
@@ -88,7 +118,7 @@
     DbLog(@"prelen = %f",nxtLen);
     
     DbLog(@"oldLen = %f",oldLen);
-    if (preLen<oldLen) {//最大只能放大2倍左右
+    if (preLen<oldLen) {
         self.transform = CGAffineTransformScale(self.transform, nxtLen/preLen, nxtLen/preLen);
     }
 //    self.transform = CGAffineTransformScale(self.transform, nxtLen/preLen, nxtLen/preLen);
