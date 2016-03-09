@@ -8,12 +8,19 @@
  
 #import "ViewController.h"
 #import "PhotoView.h"
+#import "wordView.h"
+
+typedef enum {
+    AddTYPEpicture,
+    AddTYPEtext,
+}AddTYPE;
 
 @interface ViewController ()
 {
     int i;
 }
 @property (nonatomic,assign)CGRect lastRect;
+@property (nonatomic,assign)CGRect lastWRect;
 @end
 
 @implementation ViewController
@@ -22,26 +29,63 @@
     [super viewDidLoad];
     i=1;
     self.lastRect = CGRectMake(50, 200, 300, 300);
+    self.lastWRect = CGRectMake(50, 200, 100, 30);
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
 - (IBAction)onAddClick:(UIButton *)sender {
-    [self customImgView];
+    [self customImgViewWith:AddTYPEpicture];
+//    [self customImgView];
+}
+- (IBAction)onAddTextClick:(UIButton *)sender {
+    [self customImgViewWith:AddTYPEtext];
+}
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 //绘制图片界面
--(void)customImgView
+//-(void)customImgView
+//{
+//    PhotoView *pv = [[[NSBundle mainBundle]loadNibNamed:@"PhotoView" owner:self options:nil]lastObject];
+//    pv.frame = [self nowRect];
+//    pv.imgView.image = [UIImage imageNamed:[self imgNameStr]];
+//    
+//    [self.view addSubview:pv];
+//    self.lastRect = pv.frame;
+//}
+-(void)customImgViewWith:(AddTYPE)type
 {
-    PhotoView *pv = [[[NSBundle mainBundle]loadNibNamed:@"PhotoView" owner:self options:nil]lastObject];
-    pv.frame = [self nowRect];
-    pv.imgView.image = [UIImage imageNamed:[self imgNameStr]];
     
-    [self.view addSubview:pv];
-    self.lastRect = pv.frame;
+    if (type == AddTYPEpicture) {
+        
+        PhotoView *pv = [[[NSBundle mainBundle]loadNibNamed:@"PhotoView" owner:self options:nil]lastObject];
+        pv.frame = [self nowRectWith:AddTYPEpicture];
+        pv.imgView.image = [UIImage imageNamed:[self imgNameStr]];
+        
+        [self.view addSubview:pv];
+        self.lastRect = pv.frame;
+    }else if (AddTYPEtext == type){
+        wordView *wv = [[[NSBundle mainBundle]loadNibNamed:@"wordView" owner:self options:nil]lastObject];;
+        wv.frame = [self nowRectWith:AddTYPEtext];
+        [self.view addSubview:wv];
+        self.lastWRect = wv.frame;
+    }
+    
 }
 
 //当前view的frame
 -(CGRect)nowRect
 {
     return CGRectMake(self.lastRect.origin.x+20,self.lastRect.origin.y-20,200,200);
+}
+-(CGRect)nowRectWith:(AddTYPE)type
+{
+    if (AddTYPEtext == type) {
+        return CGRectMake(self.lastWRect.origin.x+20,self.lastRect.origin.y-20,100,30);
+    }else{
+        return CGRectMake(self.lastRect.origin.x+20,self.lastRect.origin.y-20,200,200);
+    }
+    
 }
 //需要加载的图片名字
 -(NSString *)imgNameStr
