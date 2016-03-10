@@ -92,7 +92,8 @@ typedef enum {
     recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
 }
 - (IBAction)onAddClick:(UIButton *)sender {
-    
+    [self loadXimgViewWithImg: [UIImage imageNamed:[self imgNameStr]]];
+     
 }
 - (IBAction)onAddTextClick:(UIButton *)sender {
     
