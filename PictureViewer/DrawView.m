@@ -147,7 +147,9 @@
 }
 
 - (UIImage *)getImage {
-    
+    if (lines.count<1) {
+        return nil;
+    }
     NSLog(@"图片在drawView中位置：startPoint = (%f, %f), endPoint = (%f, %f)", _startPoint.x, _startPoint.y, _endPoint.x, _endPoint.y);
     
 //    CGRect imageFrame = CGRectMake(_startPoint.x - 4, 0, _endPoint.x - _startPoint.x + 4 * 2, self.bounds.size.height);

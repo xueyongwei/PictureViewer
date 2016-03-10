@@ -15,7 +15,7 @@ typedef enum {
     AddTYPEtext,
 }AddTYPE;
 
-@interface ViewController ()
+@interface ViewController ()<XimgViewDelegate>
 {
     int i;
     XsingleRotationRecoginzer *xsGesture;
@@ -26,14 +26,16 @@ typedef enum {
 @end
 
 @implementation ViewController
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(loadNoti:) name:@"loadImg" object:nil];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"loadImg" object:nil];
+    
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
-//    [[NSNotificationCenter defaultCenter]removeObserver:self];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(loadNoti:) name:@"loadImg" object:nil];
+   
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,6 +60,7 @@ typedef enum {
     [self loadXimgViewWithImg:info[@"image"]];
     
 }
+
 -(void)xFocusChange:(XimgView *)view
 {
     currentXview.xFocused = NO;
@@ -71,8 +74,10 @@ typedef enum {
     NSLog(@"拿到图片:%@",NSStringFromCGSize(image.size));
     xv.frame = CGRectMake(100, 100, 120, 100);
     xv.img = image;
+    xv.delegate = self;
     [self addXgingOnView:xv];
     [self.view addSubview:xv];
+    currentXview.xFocused = NO;
     currentXview = xv;
 }
 -(void)addXgingOnView:(UIView *)view

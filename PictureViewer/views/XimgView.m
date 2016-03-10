@@ -38,6 +38,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"改为拖动");
+    [self.delegate xFocusChange:self];
     self.tag = XSTAGTuodong;
     self.xFocused = YES;
 }

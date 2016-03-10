@@ -50,10 +50,16 @@
 //}
 - (IBAction)onSaveClicj:(UIButton *)sender {
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    NSNotification *noti = [NSNotification notificationWithName:@"loadImg" object:nil userInfo:@{@"image":[self.drawView getImage]}];
-    [center postNotification:noti];
-    
-    [self.navigationController popViewControllerAnimated:YES];
+    if ([self.drawView getImage]) {
+        NSNotification *noti = [NSNotification notificationWithName:@"loadImg" object:nil userInfo:@{@"image":[self.drawView getImage]}];
+        [center postNotification:noti];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }else
+    {
+        NSLog(@"无图像！");
+    }
+   
 //    UIImage *img = [self.drawView getImage];
 //    ShowViewController *sh = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowViewController"];
 //    sh.img = img;
