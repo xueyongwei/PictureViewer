@@ -9,5 +9,12 @@
 #import "Line.h"
 
 @implementation Line
-
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setDrawColor:[UIColor blackColor]];
+    }
+    return self;
+}
 @end

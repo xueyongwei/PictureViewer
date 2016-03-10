@@ -7,6 +7,9 @@
 //
 
 #import "ShowViewController.h"
+#import "XimgView.h"
+#import "XsingleRotationRecoginzer.h"
+
 
 @interface ShowViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
@@ -14,26 +17,36 @@
 @end
 
 @implementation ShowViewController
-
+{
+    XsingleRotationRecoginzer *xsGesture;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.imgView.image = self.img;
+//    self.imgView.image = self.img;
+    [self loadXimgViewWithImg:self.img];
 }
-
+-(void)loadXimgViewWithImg:(UIImage *)image
+{
+    XimgView *xv = [[[NSBundle mainBundle]loadNibNamed:@"XimgView" owner:self options:nil]lastObject];
+    
+    NSLog(@"拿到图片:%@",NSStringFromCGSize(image.size));
+    xv.frame = CGRectMake(100, 100, 120, 100);
+    xv.img = image;
+    [self addXgingOnView:xv];
+    [self.view addSubview:xv];
+}
+-(void)addXgingOnView:(UIView *)view
+{
+    xsGesture = [[XsingleRotationRecoginzer alloc]initWithTarget:self action:@selector(xsHandle:)];
+    [view addGestureRecognizer:xsGesture];
+}
+-(void)xsHandle:(XsingleRotationRecoginzer *)recognizer
+{
+    recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
+    recognizer.rotation = 0;
+    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

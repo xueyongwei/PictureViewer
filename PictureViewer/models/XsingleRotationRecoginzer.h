@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+//设置目标视图的tag即可改变拖动还是旋转的状态
 typedef enum {
-    XSTAGXuanzhuan = 51,
     XSTAGTuodong,
+    XSTAGXuanzhuan,
 }XSTAG;
 @interface XsingleRotationRecoginzer : UIGestureRecognizer
 @property (nonatomic,assign)BOOL suofang;

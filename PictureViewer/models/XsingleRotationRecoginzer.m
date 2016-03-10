@@ -24,30 +24,30 @@
         [self setState:UIGestureRecognizerStateChanged];
     }
     UITouch *touch = [touches anyObject];
-    
-    if (self.view.tag == XSTAGTuodong) {
-        CGPoint tuoPreviousPoint = [touch previousLocationInView:[self getPresentedViewController].view];
-        CGPoint tuoCurrentPoint = [touch locationInView:[self getPresentedViewController].view];
-        [self viewShouldMove:tuoPreviousPoint andCur:tuoCurrentPoint];
-        [self setRotation:0];
+    if (self.view.tag == XSTAGXuanzhuan) {
+        // 获取手势作用视图
+        UIView *view = [self view];
+        CGPoint center = CGPointMake(CGRectGetMidX(view.bounds), CGRectGetMidY(view.bounds));
+        // 获取当前作用手势位置
+        CGPoint currentPoint = [touch locationInView:view];
+        // 获取之前手势作用位置
+        CGPoint previousPoint = [touch previousLocationInView:view];
+        // 计算x和y差,然后利用tan反函数计算当前角度和手势作用之前角度
+        CGFloat currentRotation = atan2f((currentPoint.y - center.y), (currentPoint.x - center.x));
+        CGFloat previousRotation = atan2f((previousPoint.y - center.y), (previousPoint.x - center.x));
+        // 得出前后手势作用旋转角度（有正负，表示顺时针还是逆时针）
+        [self setRotation:(currentRotation - previousRotation)];
+        //    if (!self.suofang) {
+        //        return;
+        //    }
+        [self ViewShouldsuofang:previousPoint andCur:currentPoint];
+        
         return;
     }
+    CGPoint tuoPreviousPoint = [touch previousLocationInView:[self getPresentedViewController].view];
+    CGPoint tuoCurrentPoint = [touch locationInView:[self getPresentedViewController].view];
+    [self viewShouldMove:tuoPreviousPoint andCur:tuoCurrentPoint];
     
-    // 获取手势作用视图
-    UIView *view = [self view];
-    CGPoint center = CGPointMake(CGRectGetMidX(view.bounds), CGRectGetMidY(view.bounds));
-    // 获取当前作用手势位置
-    CGPoint currentPoint = [touch locationInView:view];
-    // 获取之前手势作用位置
-    CGPoint previousPoint = [touch previousLocationInView:view];
-    // 计算x和y差,然后利用tan反函数计算当前角度和手势作用之前角度
-    CGFloat currentRotation = atan2f((currentPoint.y - center.y), (currentPoint.x - center.x));
-    CGFloat previousRotation = atan2f((previousPoint.y - center.y), (previousPoint.x - center.x));
-    // 得出前后手势作用旋转角度（有正负，表示顺时针还是逆时针）
-    [self setRotation:(currentRotation - previousRotation)];
-    if (self.suofang) {
-        [self ViewShouldsuofang:previousPoint andCur:currentPoint];
-    }
 }
 - (UIViewController *)getPresentedViewController
 {
@@ -68,13 +68,15 @@
     double currenLen = sqrt((currentPoint.x-centet.x)*(currentPoint.x-centet.x)+(currentPoint.y-centet.y)*(currentPoint.y-centet.y));
     
     double times = currenLen/preLen;
-    NSLog(@"times = %f",times);
     [self setScale:times];
-    
 }
 
 -(void)viewShouldMove:(CGPoint)prevouesPoint andCur:(CGPoint)currentPoint
 {
+    //拖动期间不能旋转和缩放
+    self.rotation = 0;
+    self.scale = 1;
+    
     double deltX = currentPoint.x - prevouesPoint.x;
     double deltY = currentPoint.y - prevouesPoint.y;
     self.view.center = CGPointMake(self.view.center.x+deltX, self.view.center.y+deltY);

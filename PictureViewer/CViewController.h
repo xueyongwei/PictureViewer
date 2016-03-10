@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface CViewController : UIViewController
-
+@interface CViewController : UIViewController<ViewControllerDelegate>
+@property (nonatomic,weak) ViewController* delegate;
 @end

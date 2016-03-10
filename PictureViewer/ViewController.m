@@ -7,8 +7,8 @@
 //
  
 #import "ViewController.h"
-#import "PhotoView.h"
-#import "wordView.h"
+#import "XsingleRotationRecoginzer.h"
+#import "CViewController.h"
 
 typedef enum {
     AddTYPEpicture,
@@ -18,60 +18,86 @@ typedef enum {
 @interface ViewController ()
 {
     int i;
+    XsingleRotationRecoginzer *xsGesture;
+    XimgView *currentXview;
 }
 @property (nonatomic,assign)CGRect lastRect;
 @property (nonatomic,assign)CGRect lastWRect;
 @end
 
 @implementation ViewController
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(loadNoti:) name:@"loadImg" object:nil];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+//    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     i=1;
+    
     self.lastRect = CGRectMake(50, 200, 300, 300);
     self.lastWRect = CGRectMake(50, 200, 100, 30);
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Csegue"]) {
+        NSLog(@"segu");
+        CViewController *vc = [segue destinationViewController];
+        vc.delegate = self;
+    }
+}
+-(void)loadNoti:(NSNotification *)noti
+{
+    NSLog(@"%@",noti.userInfo);
+    NSDictionary *info = noti.userInfo;
+    [self loadXimgViewWithImg:info[@"image"]];
+    
+}
+-(void)xFocusChange:(XimgView *)view
+{
+    currentXview.xFocused = NO;
+    currentXview = view;
+    
+}
+-(void)loadXimgViewWithImg:(UIImage *)image
+{
+    XimgView *xv = [[[NSBundle mainBundle]loadNibNamed:@"XimgView" owner:self options:nil]lastObject];
+    
+    NSLog(@"拿到图片:%@",NSStringFromCGSize(image.size));
+    xv.frame = CGRectMake(100, 100, 120, 100);
+    xv.img = image;
+    [self addXgingOnView:xv];
+    [self.view addSubview:xv];
+    currentXview = xv;
+}
+-(void)addXgingOnView:(UIView *)view
+{
+    xsGesture = [[XsingleRotationRecoginzer alloc]initWithTarget:self action:@selector(xsHandle:)];
+    [view addGestureRecognizer:xsGesture];
+}
+-(void)xsHandle:(XsingleRotationRecoginzer *)recognizer
+{
+    recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
+    recognizer.rotation = 0;
+    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
+}
 - (IBAction)onAddClick:(UIButton *)sender {
-    [self customImgViewWith:AddTYPEpicture];
-//    [self customImgView];
+    
 }
 - (IBAction)onAddTextClick:(UIButton *)sender {
-    [self customImgViewWith:AddTYPEtext];
+    
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
+    currentXview.xFocused = NO;
 }
-//绘制图片界面
-//-(void)customImgView
-//{
-//    PhotoView *pv = [[[NSBundle mainBundle]loadNibNamed:@"PhotoView" owner:self options:nil]lastObject];
-//    pv.frame = [self nowRect];
-//    pv.imgView.image = [UIImage imageNamed:[self imgNameStr]];
-//    
-//    [self.view addSubview:pv];
-//    self.lastRect = pv.frame;
-//}
--(void)customImgViewWith:(AddTYPE)type
-{
-    
-    if (type == AddTYPEpicture) {
-        
-        PhotoView *pv = [[[NSBundle mainBundle]loadNibNamed:@"PhotoView" owner:self options:nil]lastObject];
-        pv.frame = [self nowRectWith:AddTYPEpicture];
-        pv.imgView.image = [UIImage imageNamed:[self imgNameStr]];
-        
-        [self.view addSubview:pv];
-        self.lastRect = pv.frame;
-    }else if (AddTYPEtext == type){
-        wordView *wv = [[[NSBundle mainBundle]loadNibNamed:@"wordView" owner:self options:nil]lastObject];;
-        wv.frame = [self nowRectWith:AddTYPEtext];
-        [self.view addSubview:wv];
-        self.lastWRect = wv.frame;
-    }
-    
-}
+
 
 //当前view的frame
 -(CGRect)nowRect
@@ -85,7 +111,6 @@ typedef enum {
     }else{
         return CGRectMake(self.lastRect.origin.x+20,self.lastRect.origin.y-20,200,200);
     }
-    
 }
 //需要加载的图片名字
 -(NSString *)imgNameStr
