@@ -35,9 +35,9 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="delBtn" destination="xK5-Gi-uyx" id="w7X-wf-qal"/>
+                <outlet property="delBtn" destination="xK5-Gi-uyx" id="i7c-5V-gZw"/>
                 <outlet property="imgView" destination="Ku8-XD-oGQ" id="Xvu-bb-RNq"/>
-                <outlet property="xzBtn" destination="AW9-L8-IGB" id="4pr-Rb-9AC"/>
+                <outlet property="xzBtn" destination="AW9-L8-IGB" id="Hlb-2x-qlc"/>
             </connections>
             <point key="canvasLocation" x="545" y="316"/>
         </view>

@@ -12,6 +12,8 @@
 @end
 
 @interface XimgView : UIView
+@property (weak, nonatomic) IBOutlet UIButton *delBtn;
+@property (weak, nonatomic) IBOutlet UIButton *xzBtn;
 @property (nonatomic,assign)BOOL xFocused;
 @property (nonatomic,strong)UIImage *img;
 @property (nonatomic,weak) id delegate;

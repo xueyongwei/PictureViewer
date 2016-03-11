@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ViewController.h"
+typedef void (^scrowImgBlock) (UIImage *image);
+@interface CViewController : UIViewController
 
-@interface CViewController : UIViewController<ViewControllerDelegate>
-@property (nonatomic,weak) ViewController* delegate;
+-(void)imgWith:(scrowImgBlock)block;
 @end

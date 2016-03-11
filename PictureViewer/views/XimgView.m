@@ -10,8 +10,6 @@
 #import "XsingleRotationRecoginzer.h"
 @interface XimgView()
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UIButton *delBtn;
-@property (weak, nonatomic) IBOutlet UIButton *xzBtn;
 
 @end
 

@@ -21,7 +21,7 @@
             </objects>
             <point key="canvasLocation" x="-385" y="248"/>
         </scene>
-        <!--test-->
+        <!--爱水印-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -45,6 +45,7 @@
                                 <state key="normal" title="文字"/>
                                 <connections>
                                     <action selector="onAddTextClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R3a-FG-thV"/>
+                                    <segue destination="awR-uB-z6d" kind="push" identifier="inputSegue" id="6FU-jD-UIc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG8-Q8-P9B">
@@ -73,14 +74,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="test" id="6fc-kc-maL"/>
+                    <navigationItem key="navigationItem" title="爱水印" id="6fc-kc-maL"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="114" y="248"/>
         </scene>
-        <!--Input Text View Controller-->
+        <!--添加文字-->
         <scene sceneID="gNR-7I-xwI">
             <objects>
                 <viewController storyboardIdentifier="InputTextViewController" id="awR-uB-z6d" customClass="InputTextViewController" sceneMemberID="viewController">
@@ -89,47 +90,59 @@
                         <viewControllerLayoutGuide type="bottom" id="OLU-dL-azn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bEd-ir-NOf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Hv-Oi-RB8">
-                                <rect key="frame" x="100" y="120" width="120" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="p9h-gP-hvO"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qz-F5-R4x">
+                                <rect key="frame" x="93" y="77" width="60" height="30"/>
+                                <state key="normal" title="系统字体"/>
+                                <connections>
+                                    <action selector="onSystemFontClick:" destination="awR-uB-z6d" eventType="touchUpInside" id="5EX-ne-yJe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w3w-ix-MgN">
+                                <rect key="frame" x="264" y="77" width="60" height="30"/>
+                                <state key="normal" title="小丸子体"/>
+                                <connections>
+                                    <action selector="onXiaowanziClick:" destination="awR-uB-z6d" eventType="touchUpInside" id="UZ2-Nq-1Y9"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="请输入文字" translatesAutoresizingMaskIntoConstraints="NO" id="xWQ-ml-dJT">
+                                <rect key="frame" x="87" y="164" width="220" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M18-jP-t28">
-                                <rect key="frame" x="236" y="120" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="SJb-Oa-lyO"/>
-                                    <constraint firstAttribute="height" constant="30" id="lBn-d1-HWS"/>
-                                </constraints>
-                                <state key="normal" title="ok"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ref-kI-eMx">
+                                <rect key="frame" x="187" y="220" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="添加文字" id="3Yt-8g-yOl">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="dLk-q7-U1H">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="M18-jP-t28">
+                                <rect key="frame" x="364" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="完成"/>
                                 <connections>
                                     <action selector="onOKClick:" destination="awR-uB-z6d" eventType="touchUpInside" id="H8c-4Z-Lxp"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="M18-jP-t28" firstAttribute="centerY" secondItem="8Hv-Oi-RB8" secondAttribute="centerY" id="EKH-ZW-T18"/>
-                            <constraint firstAttribute="trailing" secondItem="8Hv-Oi-RB8" secondAttribute="trailing" constant="100" id="Xxi-eU-eGy"/>
-                            <constraint firstItem="M18-jP-t28" firstAttribute="leading" secondItem="8Hv-Oi-RB8" secondAttribute="trailing" constant="16" id="eXc-5d-vl2"/>
-                            <constraint firstItem="8Hv-Oi-RB8" firstAttribute="leading" secondItem="bEd-ir-NOf" secondAttribute="leading" constant="100" id="jUu-Pg-maM"/>
-                            <constraint firstItem="8Hv-Oi-RB8" firstAttribute="top" secondItem="BbX-ly-gFt" secondAttribute="bottom" constant="100" id="sKt-gI-ksC"/>
-                        </constraints>
-                    </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="inputTF" destination="8Hv-Oi-RB8" id="7h8-ov-MS8"/>
+                        <outlet property="inputTV" destination="xWQ-ml-dJT" id="EBk-mh-Yvx"/>
+                        <outlet property="reviewLabel" destination="ref-kI-eMx" id="56i-IX-ZBK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbC-xt-ptJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="572" y="-716"/>
+            <point key="canvasLocation" x="-28" y="1191"/>
         </scene>
-        <!--testV2-->
+        <!--手势效果-->
         <scene sceneID="7C7-lH-KV2">
             <objects>
                 <viewController id="UML-Q3-Uv0" customClass="BViewController" sceneMemberID="viewController">
@@ -154,8 +167,8 @@
                                             <action selector="touchDown:" destination="UML-Q3-Uv0" eventType="touchDown" id="Cam-nJ-wfq"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="爱水印" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3B-f3-vup">
-                                        <rect key="frame" x="0.0" y="50" width="68" height="21"/>
+                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="点击换文字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3B-f3-vup">
+                                        <rect key="frame" x="-17" y="50" width="85" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -178,7 +191,7 @@
                             <constraint firstItem="n8r-kh-oI6" firstAttribute="centerY" secondItem="JvF-P6-Ij0" secondAttribute="centerY" id="nXO-YC-t4P"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="testV2" id="j6b-xv-SCG"/>
+                    <navigationItem key="navigationItem" title="手势效果" id="j6b-xv-SCG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="testView" destination="n8r-kh-oI6" id="FA0-9t-9vw"/>
@@ -190,7 +203,7 @@
             </objects>
             <point key="canvasLocation" x="619" y="248"/>
         </scene>
-        <!--testV3-->
+        <!--涂鸦-->
         <scene sceneID="xMj-bl-SNY">
             <objects>
                 <viewController id="z6S-ze-J3L" customClass="CViewController" sceneMemberID="viewController">
@@ -307,7 +320,7 @@
                             <constraint firstItem="3Gl-hM-gmh" firstAttribute="leading" secondItem="4iS-HU-Qwz" secondAttribute="leading" id="y2e-rK-zmT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="testV3" id="Mfb-ca-cl8">
+                    <navigationItem key="navigationItem" title="涂鸦" id="Mfb-ca-cl8">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Elo-Sb-aQ8">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ykc-jj-BRb">
                                 <rect key="frame" x="364" y="7" width="30" height="30"/>
@@ -326,7 +339,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaM-rc-Shk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="619" y="1191"/>
+            <point key="canvasLocation" x="521" y="1191"/>
         </scene>
         <!--Show View Controller-->
         <scene sceneID="KgU-8S-oXT">

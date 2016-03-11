@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "XsingleRotationRecoginzer.h"
 #import "CViewController.h"
+#import "InputTextViewController.h"
 
 typedef enum {
     AddTYPEpicture,
@@ -26,17 +27,6 @@ typedef enum {
 @end
 
 @implementation ViewController
--(void)viewWillAppear:(BOOL)animated
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self name:@"loadImg" object:nil];
-    
-}
--(void)viewWillDisappear:(BOOL)animated
-{
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center addObserver:self selector:@selector(loadNoti:) name:@"loadImg" object:nil];
-   
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     i=1;
@@ -50,7 +40,14 @@ typedef enum {
     if ([segue.identifier isEqualToString:@"Csegue"]) {
         NSLog(@"segu");
         CViewController *vc = [segue destinationViewController];
-        vc.delegate = self;
+        [vc imgWith:^(UIImage *image) {
+            [self loadXimgViewWithImg:image];
+        }];
+    }else if ([segue.identifier isEqualToString:@"inputSegue"]){
+        InputTextViewController *pc = [segue destinationViewController];
+        [pc imgWith:^(UIImage *image) {
+            [self loadXimgViewWithImg:image];
+        }];
     }
 }
 -(void)loadNoti:(NSNotification *)noti
@@ -90,6 +87,13 @@ typedef enum {
     recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
     recognizer.rotation = 0;
     recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
+    [self resetBtnScale:recognizer.scale];
+}
+//两个按钮随着父视图的拉伸变形，要还原回来
+-(void)resetBtnScale:(CGFloat)scale
+{
+    currentXview.xzBtn.transform = CGAffineTransformScale(currentXview.xzBtn.transform, 1.0f/scale, 1.0f/scale);
+    currentXview.delBtn.transform = CGAffineTransformScale(currentXview.delBtn.transform, 1.0f/scale, 1.0f/scale);
 }
 - (IBAction)onAddClick:(UIButton *)sender {
     [self loadXimgViewWithImg: [UIImage imageNamed:[self imgNameStr]]];
@@ -103,7 +107,6 @@ typedef enum {
     [self.view endEditing:YES];
     currentXview.xFocused = NO;
 }
-
 
 //当前view的frame
 -(CGRect)nowRect

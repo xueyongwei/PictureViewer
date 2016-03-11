@@ -49,7 +49,6 @@
     [ip stringWith:^(NSString *inputStr) {
         self.wordLabel.text = inputStr;
     }];
-
     [self.navigationController pushViewController:ip animated:YES];
     
 }

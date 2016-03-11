@@ -11,6 +11,9 @@
 #import "ShowViewController.h"
 
 @interface CViewController ()
+{
+    scrowImgBlock tempBlock;
+}
 @property (weak, nonatomic) IBOutlet DrawView *drawView;
 
 @end
@@ -20,7 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 }
-
+-(void)imgWith:(scrowImgBlock)block
+{
+    tempBlock = block;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -40,30 +46,15 @@
     self.drawView.erase = YES;
     self.drawView.color = [UIColor clearColor];
 }
-//-(UIImage *)getImageFromView:(UIView *)theView
-//{
-//    UIGraphicsBeginImageContextWithOptions(theView.bounds.size, NO, [UIScreen mainScreen].scale);
-//    [theView.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *image=UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return image;
-//}
 - (IBAction)onSaveClicj:(UIButton *)sender {
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    
     if ([self.drawView getImage]) {
-        NSNotification *noti = [NSNotification notificationWithName:@"loadImg" object:nil userInfo:@{@"image":[self.drawView getImage]}];
-        [center postNotification:noti];
-        
-        [self.navigationController popViewControllerAnimated:YES];
+        tempBlock([self.drawView getImage]);
+        [self.navigationController popViewControllerAnimated:YES];   
     }else
     {
         NSLog(@"无图像！");
     }
-   
-//    UIImage *img = [self.drawView getImage];
-//    ShowViewController *sh = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowViewController"];
-//    sh.img = img;
-//    [self.navigationController pushViewController:sh animated:YES];
 }
 
 @end
