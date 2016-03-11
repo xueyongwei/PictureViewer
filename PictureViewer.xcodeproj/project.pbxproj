@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		4724C78D1C892E1F0076E0F2 /* wordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4724C78C1C892E1F0076E0F2 /* wordView.m */; };
 		4724C78F1C892FA30076E0F2 /* wordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4724C78E1C892FA30076E0F2 /* wordView.xib */; };
+		47430DBC1C92649B0038E8F8 /* SentyMARUKO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 47430DBB1C9264470038E8F8 /* SentyMARUKO.ttf */; };
+		47430DBF1C9264E80038E8F8 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 47430DBE1C9264E80038E8F8 /* Line.m */; };
 		474D6DEE1C902A6E00020CE8 /* XsingleRotationRecoginzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 474D6DED1C902A6E00020CE8 /* XsingleRotationRecoginzer.m */; };
-		474DA0F51C8E758800957BFD /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 474DA0F41C8E758800957BFD /* Line.m */; };
 		4756FD7E1C91148700F8F3F2 /* XimgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4756FD7D1C91148700F8F3F2 /* XimgView.m */; };
 		4756FD801C91149600F8F3F2 /* XimgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4756FD7F1C91149600F8F3F2 /* XimgView.xib */; };
-		4756FDA61C9128CF00F8F3F2 /* TouchDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4756FDA51C9128CF00F8F3F2 /* TouchDrawView.m */; };
 		4756FDA81C916E2200F8F3F2 /* pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 4756FDA71C916E2200F8F3F2 /* pic.png */; };
 		477BBE001C8D5FD40008D6D7 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477BBDFF1C8D5FD40008D6D7 /* BViewController.m */; };
 		477BBE541C8D6F110008D6D7 /* InputTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477BBE531C8D6F110008D6D7 /* InputTextViewController.m */; };
@@ -40,16 +40,15 @@
 		4724C78B1C892E1F0076E0F2 /* wordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wordView.h; sourceTree = "<group>"; };
 		4724C78C1C892E1F0076E0F2 /* wordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wordView.m; sourceTree = "<group>"; };
 		4724C78E1C892FA30076E0F2 /* wordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = wordView.xib; sourceTree = "<group>"; };
+		47430DBB1C9264470038E8F8 /* SentyMARUKO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SentyMARUKO.ttf; sourceTree = "<group>"; };
+		47430DBD1C9264E80038E8F8 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		47430DBE1C9264E80038E8F8 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		474986461C86B5D1009AB3C4 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		474D6DEC1C902A6E00020CE8 /* XsingleRotationRecoginzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XsingleRotationRecoginzer.h; sourceTree = "<group>"; };
 		474D6DED1C902A6E00020CE8 /* XsingleRotationRecoginzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XsingleRotationRecoginzer.m; sourceTree = "<group>"; };
-		474DA0F31C8E758800957BFD /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
-		474DA0F41C8E758800957BFD /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		4756FD7C1C91148700F8F3F2 /* XimgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XimgView.h; sourceTree = "<group>"; };
 		4756FD7D1C91148700F8F3F2 /* XimgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XimgView.m; sourceTree = "<group>"; };
 		4756FD7F1C91149600F8F3F2 /* XimgView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XimgView.xib; sourceTree = "<group>"; };
-		4756FDA41C9128CF00F8F3F2 /* TouchDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDrawView.h; sourceTree = "<group>"; };
-		4756FDA51C9128CF00F8F3F2 /* TouchDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDrawView.m; sourceTree = "<group>"; };
 		4756FDA71C916E2200F8F3F2 /* pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic.png; sourceTree = "<group>"; };
 		477BBDFE1C8D5FD40008D6D7 /* BViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
 		477BBDFF1C8D5FD40008D6D7 /* BViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
@@ -94,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47430DBA1C9263F90038E8F8 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				47430DBB1C9264470038E8F8 /* SentyMARUKO.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		6B66C5021C858946007E5CAB = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +134,8 @@
 				477BBE561C8D82650008D6D7 /* CViewController.m */,
 				47D632711C8ED0D200F85F87 /* ShowViewController.h */,
 				47D632721C8ED0D200F85F87 /* ShowViewController.m */,
-				4756FDA41C9128CF00F8F3F2 /* TouchDrawView.h */,
-				4756FDA51C9128CF00F8F3F2 /* TouchDrawView.m */,
 				477BBE581C8D85EE0008D6D7 /* DrawView.h */,
 				477BBE591C8D85EE0008D6D7 /* DrawView.m */,
-				474DA0F31C8E758800957BFD /* Line.h */,
-				474DA0F41C8E758800957BFD /* Line.m */,
 				477BBE521C8D6F110008D6D7 /* InputTextViewController.h */,
 				477BBE531C8D6F110008D6D7 /* InputTextViewController.m */,
 				6B66C5171C858946007E5CAB /* Main.storyboard */,
@@ -147,6 +150,7 @@
 		6B66C50E1C858946007E5CAB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				47430DBA1C9263F90038E8F8 /* fonts */,
 				4756FDA71C916E2200F8F3F2 /* pic.png */,
 				6B66C5251C858961007E5CAB /* pics */,
 				6B66C50F1C858946007E5CAB /* main.m */,
@@ -169,6 +173,8 @@
 		6B66C5301C858988007E5CAB /* models */ = {
 			isa = PBXGroup;
 			children = (
+				47430DBD1C9264E80038E8F8 /* Line.h */,
+				47430DBE1C9264E80038E8F8 /* Line.m */,
 				474D6DEC1C902A6E00020CE8 /* XsingleRotationRecoginzer.h */,
 				474D6DED1C902A6E00020CE8 /* XsingleRotationRecoginzer.m */,
 			);
@@ -260,6 +266,7 @@
 				4756FD801C91149600F8F3F2 /* XimgView.xib in Resources */,
 				6B66C5191C858946007E5CAB /* Main.storyboard in Resources */,
 				6B66C5291C858968007E5CAB /* 3.jpg in Resources */,
+				47430DBC1C92649B0038E8F8 /* SentyMARUKO.ttf in Resources */,
 				6B66C52E1C85896D007E5CAB /* sc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47430DBF1C9264E80038E8F8 /* Line.m in Sources */,
 				477BBE541C8D6F110008D6D7 /* InputTextViewController.m in Sources */,
 				477BBE001C8D5FD40008D6D7 /* BViewController.m in Sources */,
 				4756FD7E1C91148700F8F3F2 /* XimgView.m in Sources */,
@@ -279,9 +287,7 @@
 				474D6DEE1C902A6E00020CE8 /* XsingleRotationRecoginzer.m in Sources */,
 				477BBE5A1C8D85EE0008D6D7 /* DrawView.m in Sources */,
 				6B66C5131C858946007E5CAB /* AppDelegate.m in Sources */,
-				4756FDA61C9128CF00F8F3F2 /* TouchDrawView.m in Sources */,
 				6B66C5101C858946007E5CAB /* main.m in Sources */,
-				474DA0F51C8E758800957BFD /* Line.m in Sources */,
 				6B66C5341C8589A2007E5CAB /* PhotoView.m in Sources */,
 				4724C78D1C892E1F0076E0F2 /* wordView.m in Sources */,
 				47D632731C8ED0D200F85F87 /* ShowViewController.m in Sources */,
